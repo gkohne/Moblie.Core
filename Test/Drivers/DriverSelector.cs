@@ -1,10 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
-using OpenQA.Selenium.Appium.Service;
 using OpenQA.Selenium.Chrome;
 using System;
-using System.IO;
 
 namespace Test.Driver
 {
@@ -52,7 +50,6 @@ namespace Test.Driver
 
                     appiumOptions.AddAdditionalCapability("deviceName", nameof(AndriodType.x86_Pie_9_API_28));
                     break;
-
             }
 
             try
@@ -69,19 +66,16 @@ namespace Test.Driver
 
         public static IWebDriver CreateWebDriver(BrowserType browserType)
         {
-            IWebDriver driver = null;
 
             switch (browserType)
             {
                 case BrowserType.Chrome:
 
                     ChromeOptions crOptions = new ChromeOptions();
-                    driver = new ChromeDriver(@"C:\Users\gkohne\source\repos\MobileCore\Test\bin\Debug\netcoreapp2.1\",crOptions);
-
-                    break;
+                    return new ChromeDriver(@"C:\Users\gkohne\source\repos\MobileCore\Test\bin\Debug\netcoreapp2.1\", crOptions);
             }
 
-            return driver;
+            return null;
         }
     }
 

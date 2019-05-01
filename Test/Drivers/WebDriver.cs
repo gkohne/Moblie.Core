@@ -23,9 +23,6 @@ namespace Test.Driver
         public IWebDriver Quit()
         {
             _unique_instance.Quit();
-
-            DisposeDriverService.KillAllBrowsers(_unique_instance);
-
             return _unique_instance;
         }
 
