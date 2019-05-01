@@ -4,11 +4,11 @@ using Test.Driver;
 
 namespace Test.Drivers
 {
-    public static class AndriodDriver
+    public class AndriodDriver
     {
-        private static AndroidDriver<IWebElement> _unique_instance;
+        private AndroidDriver<IWebElement> _unique_instance;
 
-        public static AndroidDriver<IWebElement> Inst
+        public AndroidDriver<IWebElement> Inst
         {
             get
             {
@@ -19,6 +19,13 @@ namespace Test.Drivers
 
                 return _unique_instance;
             }
+        }
+
+        public AndroidDriver<IWebElement> Quit()
+        {
+            _unique_instance.Quit();
+
+            return _unique_instance;
         }
     }
 }

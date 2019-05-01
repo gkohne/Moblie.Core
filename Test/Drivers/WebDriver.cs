@@ -1,12 +1,13 @@
 ﻿using OpenQA.Selenium;
+using Test.Drivers;
 
 namespace Test.Driver
 {
-    public static class WebDriver
+    public class WebDriver
     {
-        private static IWebDriver _unique_instance;
+        private IWebDriver _unique_instance;
 
-        public static IWebDriver Inst
+        public IWebDriver Inst
         {
             get
             {
@@ -19,17 +20,14 @@ namespace Test.Driver
             }
         }
 
-        //private static BrowserType? _browserType;
-        //public static BrowserType CurrentBrowser
-        //{
-        //    get
-        //    {
-        //        if (_browserType == null)
-        //        {
-        //            _browserType = (BrowserType)int.Parse(System.Configuration.ConfigurationManager.AppSettings["BrowserType"]);
-        //        }
-        //        return (BrowserType)_browserType;
-        //    }
-        //}
+        public IWebDriver Quit()
+        {
+            _unique_instance.Quit();
+
+            DisposeDriverService.KillAllBrowsers(_unique_instance);
+
+            return _unique_instance;
+        }
+
     }
 }
