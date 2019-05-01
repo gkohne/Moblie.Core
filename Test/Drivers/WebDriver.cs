@@ -13,7 +13,7 @@ namespace Test.Driver
             {
                 if (_unique_instance == null)
                 {
-                    _unique_instance = DriverFactory.CreateWebDriver(BrowserType.Chrome);
+                    _unique_instance = DriverSelector.CreateWebDriver(BrowserType.Chrome);
                 }
 
                 return _unique_instance;
